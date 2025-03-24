@@ -247,6 +247,9 @@ enum class passive_t
 
     // Immunity to spectral mist clouds
     r_spectral_mist,
+
+    /// Elyvilon converts all damage into pacification enchantments
+    elyvilon_pacify
 };
 
 enum ru_interference

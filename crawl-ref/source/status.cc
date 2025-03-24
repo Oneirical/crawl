@@ -1,5 +1,6 @@
 #include "AppHdr.h"
 
+#include "god-type.h"
 #include "status.h"
 
 #include "ability.h"
@@ -248,6 +249,14 @@ bool fill_status_info(int status, status_info& inf)
 
             inf.short_text = "lit torch";
         }
+    break;
+
+    case STATUS_PACIFY:
+        if (!you_worship(GOD_ELYVILON))
+            break;
+        inf.light_colour = WHITE;
+        inf.light_text = "Pacify";
+        inf.short_text = "pacifying monsters";
     break;
 
     case DUR_DIVINE_SHIELD:

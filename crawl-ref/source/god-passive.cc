@@ -154,6 +154,7 @@ static const vector<god_passive> god_passives[] =
     {
         { -1, passive_t::lifesaving },
         { -1, passive_t::protect_ally },
+        { -1, passive_t::elyvilon_pacify },
     },
 
     // Lugonu

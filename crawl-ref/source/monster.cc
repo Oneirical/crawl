@@ -4342,8 +4342,23 @@ int monster::hurt(const actor *agent, int amount, beam_type flavour,
                             / 100;
         }
 
-        amount = min(amount, hit_points);
-        hit_points -= amount;
+        if (agent && (agent->is_player() || agent->as_monster()->friendly())
+            && have_passive(passive_t::elyvilon_pacify))
+        {
+            const int res_margin = this->check_willpower(agent, amount);
+            if (res_margin > 0) {
+                simple_monster_message(*this, " turns neutral.");
+                record_monster_defeat(this, KILL_PACIFIED);
+                mons_pacify(*this, ATT_NEUTRAL);
+            } else {
+                simple_monster_message(*this,
+                    this->resist_margin_phrase(res_margin).c_str());
+            }
+        }
+        else {
+            amount = min(amount, hit_points);
+            hit_points -= amount;
+        }
 
         if (hit_points > max_hit_points)
         {
@@ -6499,6 +6514,7 @@ bool monster::angered_by_attacks() const
             && !mons_is_avatar(type)
             && !mons_class_is_zombified(type)
             && !is_divine_companion()
+            && !have_passive(passive_t::elyvilon_pacify)
             && !testbits(flags, MF_DEMONIC_GUARDIAN)
             && !((holiness() & MH_NONLIVING) && mons_intel(*this) == I_BRAINLESS)
             // XXX: Is this relevant if we can't harm them in the first place?
