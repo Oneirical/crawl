@@ -228,7 +228,7 @@ void wizard_heal(bool super_heal)
         you.duration[DUR_NO_CAST] = 0;
         you.duration[DUR_NO_POTIONS] = 0;
         you.duration[DUR_NO_SCROLLS] = 0;
-        you.duration[DUR_LOWERED_WL] = 0;
+        you.duration[DUR_HALVED_WL] = 0;
         you.duration[DUR_VERTIGO] = 0;
         you.duration[DUR_VITRIFIED] = 0;
         you.duration[DUR_FROZEN] = 0;

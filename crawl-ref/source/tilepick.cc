@@ -2387,6 +2387,7 @@ static const map<monster_info_flags, tileidx_t> monster_status_icons = {
     { MB_RIMEBLIGHT, TILEI_RIMEBLIGHT },
     { MB_ARMED, TILEI_UNDYING_ARMS },
     { MB_SHADOWLESS, TILEI_SHADOWLESS },
+    { MB_HALVED_WL, TILEI_WEAK_WILLED },
     { MB_LOWERED_WL, TILEI_WEAK_WILLED },
     { MB_SIGN_OF_RUIN, TILEI_SIGN_OF_RUIN },
     { MB_DOUBLED_HEALTH, TILEI_DOUBLED_HEALTH },
@@ -2424,7 +2425,7 @@ static const map<duration_type, pair<tileidx_t, string>> player_status_icons = {
     // Default displayed statuses
     { DUR_SLOW, {TILEI_SLOWED, "slow"} },
     { DUR_VITRIFIED, {TILEI_VITRIFIED, "fragile"} },
-    { DUR_LOWERED_WL, {TILEI_WEAK_WILLED, "will/2"} },
+    { DUR_HALVED_WL, {TILEI_WEAK_WILLED, "will/2"} },
 
     // Less critical or positive effects (or ones already covered by a default
     // force_more_message). Not enabled by default.

@@ -33,7 +33,7 @@ const enchant_type dispellable_enchantments[] =
     ENCH_PETRIFIED,
     ENCH_REGENERATION,
     ENCH_STRONG_WILLED,
-    ENCH_LOWERED_WL,
+    ENCH_HALVED_WL,
     ENCH_SILENCE,
     ENCH_TP,
     ENCH_LIQUEFYING,

@@ -258,7 +258,7 @@ static const duration_def duration_data[] =
       RED, "Fire",
       "on fire", "liquid fire",
       "You are covered in liquid fire.", D_DISPELLABLE /*but special-cased*/},
-    { DUR_LOWERED_WL,
+    { DUR_HALVED_WL,
       RED, "Will/2",
       "weak-willed", "lowered wl",
       "You are weak-willed.", D_DISPELLABLE,

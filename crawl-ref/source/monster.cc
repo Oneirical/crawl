@@ -28,6 +28,7 @@
 #include "dgn-event.h"
 #include "dgn-overview.h"
 #include "directn.h"
+#include "enchant-type.h"
 #include "english.h"
 #include "env.h"
 #include "fight.h"
@@ -48,6 +49,7 @@
 #include "misc.h"
 #include "mon-abil.h"
 #include "mon-act.h"
+#include "mon-aura.h"
 #include "mon-behv.h"
 #include "mon-book.h"
 #include "mon-cast.h"
@@ -4005,8 +4007,14 @@ int monster::willpower() const
     if (has_ench(ENCH_STRONG_WILLED)) //trog's hand
         u += 80;
 
-    if (has_ench(ENCH_LOWERED_WL))
+    if (has_ench(ENCH_HALVED_WL))
         u /= 2;
+
+    if (has_ench(ENCH_LOWERED_WL))
+    {
+        mon_enchant lowered_will = get_ench(ENCH_LOWERED_WL);
+        u -= lowered_will.degree;
+    }
 
     if (u < 0)
         u = 0;
@@ -4345,8 +4353,11 @@ int monster::hurt(const actor *agent, int amount, beam_type flavour,
         if (agent && (agent->is_player() || agent->as_monster()->friendly())
             && have_passive(passive_t::elyvilon_pacify))
         {
-            const int res_margin = this->check_willpower(agent, amount);
-            if (res_margin > 0) {
+            mon_enchant old_l_wl = this->get_ench(ENCH_LOWERED_WL);
+            this->del_ench(ENCH_LOWERED_WL);
+            this->add_ench(mon_enchant(ENCH_LOWERED_WL, amount + old_l_wl.degree, agent, 40));
+            const int res_margin = this->willpower();
+            if (res_margin == 0) {
                 simple_monster_message(*this, " turns neutral.");
                 record_monster_defeat(this, KILL_PACIFIED);
                 mons_pacify(*this, ATT_NEUTRAL);
@@ -5640,11 +5651,11 @@ bool monster::strip_willpower(actor *attacker, int dur, bool quiet)
     if (willpower() == WILL_INVULN)
         return false;
 
-    if (!quiet && !has_ench(ENCH_LOWERED_WL) && you.can_see(*this))
+    if (!quiet && !has_ench(ENCH_HALVED_WL) && you.can_see(*this))
         mprf("%s willpower is stripped away!", name(DESC_ITS).c_str());
 
-    mon_enchant lowered_wl(ENCH_LOWERED_WL, 1, attacker, dur * BASELINE_DELAY);
-    return add_ench(lowered_wl);
+    mon_enchant halved_wl(ENCH_HALVED_WL, 1, attacker, dur * BASELINE_DELAY);
+    return add_ench(halved_wl);
 }
 
 int monster::beam_resists(bolt &beam, int hurted, bool doEffects, string /*source*/)

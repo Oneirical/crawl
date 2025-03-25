@@ -51,6 +51,7 @@ enum monster_info_flags
 #endif
     MB_PETRIFYING,
     MB_PETRIFIED,
+    MB_HALVED_WL,
     MB_LOWERED_WL,
     MB_POSSESSABLE,
 #if TAG_MAJOR_VERSION == 34

@@ -6764,7 +6764,7 @@ int player_willpower(bool temp)
         rm = max_will;
 
     // Enchantment/environment effect
-    if ((you.duration[DUR_LOWERED_WL]
+    if ((you.duration[DUR_HALVED_WL]
          || player_in_branch(BRANCH_TARTARUS)) && temp)
     {
         rm /= 2;
@@ -8081,10 +8081,10 @@ bool player::strip_willpower(actor */*attacker*/, int dur, bool quiet)
 {
     // Only prints a message when you gain this status for the first time,
     // replicating old behavior. Should this change?
-    if (!quiet && !you.duration[DUR_LOWERED_WL])
+    if (!quiet && !you.duration[DUR_HALVED_WL])
         mpr("Your willpower is stripped away!");
 
-    you.increase_duration(DUR_LOWERED_WL, dur, 40);
+    you.increase_duration(DUR_HALVED_WL, dur, 40);
 
     return true;
 }
@@ -8847,7 +8847,7 @@ static bool _ench_triggers_trickster(enchant_type ench)
         case ENCH_SICK:
         case ENCH_PETRIFYING:
         case ENCH_PETRIFIED:
-        case ENCH_LOWERED_WL:
+        case ENCH_HALVED_WL:
         case ENCH_TP:
         case ENCH_INNER_FLAME:
         case ENCH_FLAYED:

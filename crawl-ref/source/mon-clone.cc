@@ -161,7 +161,7 @@ static enchant_type _player_duration_to_mons_enchantment(duration_type dur)
     case DUR_FROZEN:           return ENCH_FROZEN;
     case DUR_HASTE:            return ENCH_HASTE;
     case DUR_INVIS:            return ENCH_INVIS;
-    case DUR_LOWERED_WL:       return ENCH_LOWERED_WL;
+    case DUR_HALVED_WL:       return ENCH_HALVED_WL;
     case DUR_MIGHT:            return ENCH_MIGHT;
     case DUR_NO_MOMENTUM:      return ENCH_BOUND;
     case DUR_PARALYSIS:        return ENCH_PARALYSIS;

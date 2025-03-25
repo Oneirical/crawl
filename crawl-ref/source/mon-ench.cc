@@ -1376,7 +1376,7 @@ void monster::apply_enchantment(const mon_enchant &me)
     case ENCH_SUMMON_TIMER:
     case ENCH_CHARM:
     case ENCH_SLEEP_WARY:
-    case ENCH_LOWERED_WL:
+    case ENCH_HALVED_WL:
     case ENCH_TIDE:
     case ENCH_REGENERATION:
     case ENCH_DOUBLED_HEALTH:
@@ -2069,7 +2069,7 @@ static const char *enchant_names[] =
      "battle_frenzy", "temp_pacif",
 #endif
     "petrifying",
-    "petrified", "lowered_wl", "soul_ripe", "slowly_dying",
+    "petrified", "halved_wl", "lowered_wl", "soul_ripe", "slowly_dying",
 #if TAG_MAJOR_VERSION == 34
     "eat_items",
 #endif

@@ -46,6 +46,7 @@ enum enchant_type
 #endif
     ENCH_PETRIFYING,
     ENCH_PETRIFIED,
+    ENCH_HALVED_WL,
     ENCH_LOWERED_WL,
     ENCH_SOUL_RIPE,
     ENCH_SLOWLY_DYING,

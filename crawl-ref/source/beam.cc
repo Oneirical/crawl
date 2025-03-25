@@ -6654,7 +6654,7 @@ mon_resist_type bolt::apply_enchantment_to_monster(monster* mon)
         return MON_AFFECTED;
 
     case BEAM_VULNERABILITY:
-        if (!mon->has_ench(ENCH_LOWERED_WL))
+        if (!mon->has_ench(ENCH_HALVED_WL))
         {
             if (mon->strip_willpower(agent(), random_range(20, 30)))
                 obvious_effect = true;

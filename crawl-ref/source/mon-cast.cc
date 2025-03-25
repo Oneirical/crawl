@@ -1108,7 +1108,7 @@ static ai_action::goodness _foe_tele_goodness(const monster &caster)
 
 static ai_action::goodness _foe_wl_lower_goodness(const monster &caster)
 {
-    return _foe_effect_viable(caster, DUR_LOWERED_WL, ENCH_LOWERED_WL);
+    return _foe_effect_viable(caster, DUR_HALVED_WL, ENCH_HALVED_WL);
 }
 
 static ai_action::goodness _foe_vitrify_goodness(const monster &caster)

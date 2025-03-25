@@ -71,6 +71,7 @@ static map<enchant_type, monster_info_flags> trivial_ench_mb_mappings = {
     { ENCH_STICKY_FLAME,    MB_BURNING },
     { ENCH_PETRIFIED,       MB_PETRIFIED },
     { ENCH_PETRIFYING,      MB_PETRIFYING },
+    { ENCH_HALVED_WL,       MB_HALVED_WL },
     { ENCH_LOWERED_WL,      MB_LOWERED_WL },
     { ENCH_SWIFT,           MB_SWIFT },
     { ENCH_SILENCE,         MB_SILENCING },

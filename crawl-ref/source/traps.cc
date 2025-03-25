@@ -461,7 +461,7 @@ static const vector<pair<function<void ()>, int>> zot_effects = {
     { [] { you.paralyse(nullptr, 2 + random2(4), "a Zot trap"); }, 1 },
     { [] { drain_mp(you.magic_points); canned_msg(MSG_MAGIC_DRAIN); }, 2 },
     { [] { you.petrify(nullptr); }, 1 },
-    { [] { you.increase_duration(DUR_LOWERED_WL, 5 + random2(15), 20,
+    { [] { you.increase_duration(DUR_HALVED_WL, 5 + random2(15), 20,
                 "Your willpower is stripped away!"); }, 4 },
     { [] { mons_word_of_recall(nullptr, 2 + random2(3)); }, 3 },
     { [] {
