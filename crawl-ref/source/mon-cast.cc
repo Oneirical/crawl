@@ -27,6 +27,7 @@
 #include "directn.h"
 #include "english.h"
 #include "env.h"
+#include "mon-util.h"
 #include "tile-env.h"
 #include "evoke.h"
 #include "exclude.h"
@@ -7026,12 +7027,15 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
 
         damage_taken = foe->apply_ac(damage_taken);
 
+        bool peaceful = have_passive(passive_t::elyvilon_pacify) && mons_aligned(&you, mons);
+
         if (you.can_see(*foe))
         {
             tileidx_t tile = TILE_BOLT_DEFAULT_WHITE;
 
-            mprf("%s and strikes %s%s",
-                 airstrike_intensity_display(empty_space, tile).c_str(),
+            mprf("%s and %s %s%s",
+                 airstrike_intensity_display(empty_space, tile, peaceful).c_str(),
+                 peaceful ? "caresses" : "strikes",
                  foe->name(DESC_THE).c_str(),
                  attack_strength_punctuation(damage_taken).c_str());
 

@@ -926,22 +926,25 @@ int airstrike_space_around(coord_def target, bool count_unseen)
     return empty_space;
 }
 
-string airstrike_intensity_display(int empty_space, tileidx_t& tile)
+string airstrike_intensity_display(int empty_space, tileidx_t& tile, bool peaceful)
 {
     if (empty_space < 3)
     {
         tile = TILE_BOLT_WEAK_AIR;
-        return "The confined air twists around weakly";
+        const char* wind = peaceful ? "A tiny gust" : "The confined air";
+        return make_stringf("%s twists around weakly", wind);
     }
     else if (empty_space < 6)
     {
         tile = TILE_BOLT_MEDIUM_AIR;
-        return "The air twists around";
+        const char* wind = peaceful ? "A light breeze" : "The air";
+        return make_stringf("%s twists around", wind);
     }
     else
     {
         tile = TILE_BOLT_STRONG_AIR;
-        return "The open air twists around violently";
+        const char* adverb = peaceful ? "gracefully" : "violently";
+        return make_stringf("The open air twists around %s", adverb);
     }
 }
 
@@ -983,10 +986,12 @@ spret cast_airstrike(int pow, coord_def target, bool fail)
 #ifdef DEBUG_DIAGNOSTICS
     const int preac = hurted;
 #endif
+    bool peaceful = have_passive(passive_t::elyvilon_pacify);
     hurted = mons->apply_ac(mons->beam_resists(pbeam, hurted, false));
     dprf("preac: %d, postac: %d", preac, hurted);
-    mprf("%s and strikes %s%s%s",
-         airstrike_intensity_display(empty_space, tile).c_str(),
+    mprf("%s and %s %s%s%s",
+         airstrike_intensity_display(empty_space, tile, peaceful).c_str(),
+         peaceful ? "caresses" : "strikes",
          mons->name(DESC_THE).c_str(),
          hurted ? "" : " but does no damage",
          attack_strength_punctuation(hurted).c_str());

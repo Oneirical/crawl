@@ -2215,8 +2215,9 @@ int melee_attack::player_apply_final_multipliers(int damage, bool aux)
     if (dmg_mult)
         damage = damage * (100 + dmg_mult) / 100;
 
-    if (you.duration[DUR_CONFUSING_TOUCH] && !aux)
+    if (you.duration[DUR_CONFUSING_TOUCH] && !aux) {
         return 0;
+    }
 
     return attack::player_apply_final_multipliers(damage, aux);
 }
@@ -3840,6 +3841,7 @@ void melee_attack::mons_apply_attack_flavour()
         const int min = pow(attacker->get_hit_dice(), 1.2) * (spaces + 3) / 6;
         const int max = pow(attacker->get_hit_dice() + 1, 1.2) * (spaces + 4) / 6;
         special_damage = defender->apply_ac(random_range(min, max), 0);
+        bool peaceful = have_passive(passive_t::elyvilon_pacify) && mons_aligned(&you, attacker);
 
         if (needs_message && special_damage)
         {
@@ -3847,8 +3849,9 @@ void melee_attack::mons_apply_attack_flavour()
             // respecting the mechanic will get quite bodied. Hrm.
             tileidx_t generic = TILE_BOLT_DEFAULT_WHITE;
 
-            mprf("%s and strikes %s%s",
-                 airstrike_intensity_display(spaces, generic).c_str(),
+            mprf("%s and %s %s%s",
+                 airstrike_intensity_display(spaces, generic, peaceful).c_str(),
+                 peaceful ? "caresses" : "strikes",
                  defender->name(DESC_THE).c_str(),
                  attack_strength_punctuation(special_damage).c_str());
         }

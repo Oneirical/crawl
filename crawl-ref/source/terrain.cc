@@ -5,6 +5,7 @@
 
 #include "AppHdr.h"
 
+#include "god-passive.h"
 #include "terrain.h"
 
 #include <algorithm>
@@ -2540,9 +2541,12 @@ void ice_wall_damage(monster &mons, int delay)
     beam.flavour = BEAM_COLD;
     beam.thrower = KILL_YOU;
     int dam = mons_adjust_flavoured(&mons, beam, orig_dam);
-    mprf("The wall freezes %s%s%s",
+    mprf("The wall %s %s%s%s",
+         have_passive(passive_t::elyvilon_pacify) ? "gently cools" : "freezes",
          you.can_see(mons) ? mons.name(DESC_THE).c_str() : "something",
-         dam ? "" : " but does no damage",
+     dam ? "" : have_passive(passive_t::elyvilon_pacify)
+         ? ", but it goes unnoticed"
+         : " but does no damage",
          attack_strength_punctuation(dam).c_str());
 
     if (dam > 0)
