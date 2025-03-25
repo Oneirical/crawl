@@ -52,7 +52,6 @@ enum monster_info_flags
     MB_PETRIFYING,
     MB_PETRIFIED,
     MB_HALVED_WL,
-    MB_LOWERED_WL,
     MB_POSSESSABLE,
 #if TAG_MAJOR_VERSION == 34
     MB_OLD_ENSLAVED,
@@ -254,6 +253,10 @@ enum monster_info_flags
     MB_VEXED,
     MB_VAMPIRE_THRALL,
     MB_PYRRHIC_RECOLLECTION,
+    MB_LOWERED_WL_1,
+    MB_LOWERED_WL_2,
+    MB_LOWERED_WL_3,
+    MB_LOWERED_WL_4,
     NUM_MB_FLAGS
 };
 

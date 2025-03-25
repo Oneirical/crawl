@@ -109,6 +109,10 @@ nobody_memory_1 NOBODY_MEMORY_1
 nobody_memory_2 NOBODY_MEMORY_2
 nobody_memory_3 NOBODY_MEMORY_3
 pyrrhic PYRRHIC
+lowered_wl_1 LOWERED_WL_1
+lowered_wl_2 LOWERED_WL_2
+lowered_wl_3 LOWERED_WL_3
+lowered_wl_4 LOWERED_WL_4
 
 something_under SOMETHING_UNDER
 new_stair NEW_STAIR

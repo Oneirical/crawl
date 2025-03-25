@@ -114,7 +114,6 @@ static const vector<monster_info_flag_name> monster_info_flag_names = {
     { MB_SLOWED, "slow", "slow", "slow"},
     { MB_BREATH_WEAPON, "catching breath", "catching @possessive@ breath", "catching breath"},
     { MB_HALVED_WL, "weak-willed", "weak-willed", "weak-willed"},
-    { MB_LOWERED_WL, "sedated", "sedated", "sedated"},
     { MB_FIRE_VULN, "combustible", "more vulnerable to fire", "combustible"},
     { MB_POISON_VULN, "easily poisoned", "more vulnerable to poison", "easily poisoned"},
     { MB_WRETCHED, "misshapen", "misshapen and mutated", "misshapen"},
@@ -159,4 +158,8 @@ static const vector<monster_info_flag_name> monster_info_flag_names = {
     { MB_CHAOS_LACE, "chaos-laced", "interlaced with chaos", "chaos-laced"},
     { MB_VEXED, "vexed", "lashing out in frustration", "vexed"},
     { MB_PYRRHIC_RECOLLECTION, "ablaze", "ablaze with memories", "ablaze"},
+    { MB_LOWERED_WL_1, "slightly sedated", "slightly sedated", "slightly sedated"},
+    { MB_LOWERED_WL_2, "sedated", "sedated", "sedated"},
+    { MB_LOWERED_WL_3, "strongly sedated", "strongly sedated", "strongly sedated"},
+    { MB_LOWERED_WL_4, "extremely sedated", "extremely sedated", "extremely sedated"},
 };

@@ -2388,7 +2388,6 @@ static const map<monster_info_flags, tileidx_t> monster_status_icons = {
     { MB_ARMED, TILEI_UNDYING_ARMS },
     { MB_SHADOWLESS, TILEI_SHADOWLESS },
     { MB_HALVED_WL, TILEI_WEAK_WILLED },
-    { MB_LOWERED_WL, TILEI_WEAK_WILLED },
     { MB_SIGN_OF_RUIN, TILEI_SIGN_OF_RUIN },
     { MB_DOUBLED_HEALTH, TILEI_DOUBLED_HEALTH },
     { MB_KINETIC_GRAPNEL, TILEI_KINETIC_GRAPNEL },
@@ -2399,6 +2398,10 @@ static const map<monster_info_flags, tileidx_t> monster_status_icons = {
     { MB_VEXED, TILEI_VEXED },
     { MB_VAMPIRE_THRALL, TILEI_VAMPIRE_THRALL },
     { MB_PYRRHIC_RECOLLECTION, TILEI_PYRRHIC },
+    { MB_LOWERED_WL_1, TILEI_LOWERED_WL_1, },
+    { MB_LOWERED_WL_2, TILEI_LOWERED_WL_2, },
+    { MB_LOWERED_WL_3, TILEI_LOWERED_WL_3, },
+    { MB_LOWERED_WL_4, TILEI_LOWERED_WL_4, },
 };
 
 set<tileidx_t> status_icons_for(const monster_info &mons)

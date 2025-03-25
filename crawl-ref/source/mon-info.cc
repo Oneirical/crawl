@@ -7,6 +7,7 @@
 
 #include "AppHdr.h"
 
+#include "enchant-type.h"
 #include "mon-info.h"
 
 #include <algorithm>
@@ -72,7 +73,6 @@ static map<enchant_type, monster_info_flags> trivial_ench_mb_mappings = {
     { ENCH_PETRIFIED,       MB_PETRIFIED },
     { ENCH_PETRIFYING,      MB_PETRIFYING },
     { ENCH_HALVED_WL,       MB_HALVED_WL },
-    { ENCH_LOWERED_WL,      MB_LOWERED_WL },
     { ENCH_SWIFT,           MB_SWIFT },
     { ENCH_SILENCE,         MB_SILENCING },
     { ENCH_PARALYSIS,       MB_PARALYSED },
@@ -202,6 +202,13 @@ static monster_info_flags ench_to_mb(const monster& mons, enchant_type ench)
             return MB_MAX_POISONED;
     case ENCH_CONTAM:
         return mons.get_ench(ench).degree == 1 ? MB_CONTAM_LIGHT : MB_CONTAM_HEAVY;
+    case ENCH_LOWERED_WL:
+        {
+        int base_wl = (get_monster_data(mons.base_monster))->willpower;
+        int new_wl = mons.willpower();
+        return new_wl > (base_wl / 4 * 3) ? MB_LOWERED_WL_1 : new_wl > (base_wl / 2) ?
+            MB_LOWERED_WL_2 : new_wl > (base_wl / 4) ? MB_LOWERED_WL_3 : MB_LOWERED_WL_4;
+        }
     case ENCH_SLOWLY_DYING:
         if (mons.type == MONS_WITHERED_PLANT)
             return MB_CRUMBLING;

@@ -2069,7 +2069,7 @@ static const char *enchant_names[] =
      "battle_frenzy", "temp_pacif",
 #endif
     "petrifying",
-    "petrified", "halved_wl", "lowered_wl", "soul_ripe", "slowly_dying",
+    "petrified", "halved_wl", "soul_ripe", "slowly_dying",
 #if TAG_MAJOR_VERSION == 34
     "eat_items",
 #endif
@@ -2187,7 +2187,7 @@ static const char *enchant_names[] =
     "misdirected", "changed appearance", "shadowless", "doubled_health",
     "grapnel", "tempered", "hatching", "blinkitis", "chaos_laced", "vexed",
     "deep sleep", "drowsy",
-    "vampire thrall", "pyrrhic recollection",
+    "vampire thrall", "pyrrhic recollection", "lowered_wl",
     "buggy", // NUM_ENCHANTMENTS
 };
 

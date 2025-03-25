@@ -4007,14 +4007,14 @@ int monster::willpower() const
     if (has_ench(ENCH_STRONG_WILLED)) //trog's hand
         u += 80;
 
-    if (has_ench(ENCH_HALVED_WL))
-        u /= 2;
-
     if (has_ench(ENCH_LOWERED_WL))
     {
         mon_enchant lowered_will = get_ench(ENCH_LOWERED_WL);
         u -= lowered_will.degree;
     }
+
+    if (has_ench(ENCH_HALVED_WL))
+        u /= 2;
 
     if (u < 0)
         u = 0;

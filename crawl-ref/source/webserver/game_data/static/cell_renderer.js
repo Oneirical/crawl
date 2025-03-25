@@ -1156,6 +1156,10 @@ function ($, view_data, gui, main, tileinfo_player, icons, dngn, enums,
                 case icons.BIND:
                 case icons.SIGN_OF_RUIN:
                 case icons.WEAK_WILLED:
+                case icons.LOWERED_WL_1:
+                case icons.LOWERED_WL_2:
+                case icons.LOWERED_WL_3:
+                case icons.LOWERED_WL_4:
                 case icons.DOUBLED_HEALTH:
                 case icons.KINETIC_GRAPNEL:
                 case icons.TEMPERED:

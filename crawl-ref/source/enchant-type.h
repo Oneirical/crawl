@@ -47,7 +47,6 @@ enum enchant_type
     ENCH_PETRIFYING,
     ENCH_PETRIFIED,
     ENCH_HALVED_WL,
-    ENCH_LOWERED_WL,
     ENCH_SOUL_RIPE,
     ENCH_SLOWLY_DYING,
 #if TAG_MAJOR_VERSION == 34
@@ -241,6 +240,7 @@ enum enchant_type
     ENCH_DROWSY,
     ENCH_VAMPIRE_THRALL,
     ENCH_PYRRHIC_RECOLLECTION,
+    ENCH_LOWERED_WL,
     // Update enchant_names[] in mon-ench.cc when adding or removing
     // enchantments.
     NUM_ENCHANTMENTS
