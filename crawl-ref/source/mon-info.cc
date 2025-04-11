@@ -204,7 +204,7 @@ static monster_info_flags ench_to_mb(const monster& mons, enchant_type ench)
         return mons.get_ench(ench).degree == 1 ? MB_CONTAM_LIGHT : MB_CONTAM_HEAVY;
     case ENCH_LOWERED_WL:
         {
-        int base_wl = (get_monster_data(mons.base_monster))->willpower;
+        int base_wl = (get_monster_data(mons.type))->willpower;
         int new_wl = mons.willpower();
         return new_wl > (base_wl / 4 * 3) ? MB_LOWERED_WL_1 : new_wl > (base_wl / 2) ?
             MB_LOWERED_WL_2 : new_wl > (base_wl / 4) ? MB_LOWERED_WL_3 : MB_LOWERED_WL_4;

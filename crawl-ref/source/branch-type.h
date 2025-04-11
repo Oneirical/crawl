@@ -64,6 +64,7 @@ enum branch_type                // you.where_are_you
 #endif
     BRANCH_ARENA,
     BRANCH_CRUCIBLE,
+    BRANCH_ELYSIUM,
     NUM_BRANCHES,
 
     GLOBAL_BRANCH_INFO = 127,

@@ -5,6 +5,7 @@
 
 #include "AppHdr.h"
 
+#include "ability-type.h"
 #include "religion.h"
 
 #include <algorithm>
@@ -238,6 +239,7 @@ const vector<vector<god_power>> & get_all_god_powers()
             { 1, ABIL_ELYVILON_PURIFICATION, "purify yourself" },
             { 2, ABIL_ELYVILON_HEAL_OTHER, "heal and attempt to pacify others" },
             { 3, ABIL_ELYVILON_HEAL_SELF, "provide healing for yourself" },
+            { 3, ABIL_ELYVILON_ELYSIAN_RETREAT, "afford yourself a relaxing vacation" },
             { 5, ABIL_ELYVILON_DIVINE_VIGOUR, "call upon Elyvilon for divine vigour" },
         },
 

@@ -1,5 +1,6 @@
 #include "AppHdr.h"
 
+#include "branch-type.h"
 #include "branch.h"
 #include "branch-data.h"
 
@@ -62,6 +63,7 @@ static const branch_type logical_branch_order[] = {
     BRANCH_GAUNTLET,
     BRANCH_ARENA,
     BRANCH_CRUCIBLE,
+    BRANCH_ELYSIUM,
 };
 COMPILE_CHECK(ARRAYSZ(logical_branch_order) == NUM_BRANCHES);
 
@@ -70,6 +72,7 @@ static const branch_type danger_branch_order[] = {
     BRANCH_TEMPLE,
     BRANCH_BAZAAR,
     BRANCH_TROVE,
+    BRANCH_ELYSIUM,
     BRANCH_ARENA,
     BRANCH_DUNGEON,
     BRANCH_SEWER,

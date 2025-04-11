@@ -1,5 +1,6 @@
 #include "AppHdr.h"
 
+#include "branch-type.h"
 #include "god-type.h"
 #include "status.h"
 
@@ -910,6 +911,17 @@ bool fill_status_info(int status, status_info& inf)
     case DUR_ENKINDLED:
         inf.light_text = make_stringf("Enkindled (%d)", you.props[ENKINDLE_CHARGES_KEY].get_int());
         break;
+    case DUR_ELYSIUM:
+    {
+        if (player_in_branch(BRANCH_ELYSIUM))
+        {
+            inf.light_text   = "Elysium";
+            inf.light_colour = CYAN;
+            inf.short_text   = "on vacation to Elysium";
+            inf.long_text    = "You are taking a well-deserved rest in Elysium.";
+        }
+        break;
+    }
 
     default:
         if (!found)

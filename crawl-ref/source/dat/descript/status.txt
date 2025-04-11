@@ -1149,3 +1149,8 @@ You are noisily attacking with all of your armour. Every piece of armour you
 haunt currently moves of its own volition; any damage it takes will not affect
 you, you can freely fire through it, and its attacks may daze, drain, or confuse
 your enemies.
+%%%%
+Elysium status
+
+You are taking a well-deserved vacation in Elysium, and will be returned whence you
+came after a few turns.

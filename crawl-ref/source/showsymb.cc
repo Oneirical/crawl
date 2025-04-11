@@ -7,6 +7,7 @@
 
 #include "AppHdr.h"
 
+#include "branch-type.h"
 #include "showsymb.h"
 
 #include "cloud.h"
@@ -104,7 +105,8 @@ static unsigned short _cell_feat_show_colour(const map_cell& cell,
         }
     }
 
-    if (feat == DNGN_SHALLOW_WATER && player_in_branch(BRANCH_SHOALS))
+    if (feat == DNGN_SHALLOW_WATER && (player_in_branch(BRANCH_SHOALS) ||
+                                       player_in_branch(BRANCH_ELYSIUM)))
         colour = ETC_WAVES;
 
     if (feat_is_tree(feat) && env.forest_awoken_until)

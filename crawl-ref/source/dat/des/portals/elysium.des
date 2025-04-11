@@ -1,0 +1,101 @@
+default-depth: Elysium
+
+{{
+function elysium_setup(e)
+    e.tags("no_dump no_item_gen allow_dup")
+    e.orient("encompass")
+    e.kfeat("< = exit_elysium")
+    e.kmons("P = sacred lotus")
+    e.ftile(". = floor_grass")
+    e.kprop("1'< = no_tele_into")
+    e.kmask("1'< = no_monster_gen")
+    e.mons("generate_awake human name:spectator n_rpl n_des")
+    e.lua_marker("v", props_marker { veto_destroy="veto" })
+end
+}}
+
+NAME: elysian_garden_1
+SUBST: B = o
+: elysium_setup(_G)
+MAP
+xxxxxxxxxwwwwxxxxxxxxxww
+xxxxxxxPwwwwwwwwxxxwwwxw
+xxxxxxxwwwwwwwwwwwwxxxww
+xxxx""""wwwwwwwwwwwwwwww
+xx""""""wwwwwPwwwwwwwwww
+"""""""""wwwwwwww"wP"www
+""""wPw"""""""""""ww"www
+x""""ww"""""wwwww"""wwww
+xxx""""""""""wwwww""wwww
+xxx""""""xx"""wwwwwwwwww
+xxxx""""xxxxxx"wwPwwwwwx
+xxxxxx"xxxxxx""wwwwwwwxx
+xxxxxxxxxxxxx<wwwwwwwwww
+ENDMAP
+
+
+NAME:   elysium_end_hellmonk_lost_city
+: elysium_setup(_G)
+: set_border_fill_type("open_sea")
+MONS:    faun w:15 / manticore / harpy, satyr, minotaur, sphinx marauder
+KMONS:   O = sacred lotus
+KMONS:   P = plant
+KITEM:   f = azure gem
+KITEM:   O = barnacled rune of Zot
+SHUFFLE: d% / e* / f|
+NSUBST:  | = 1:O / *:|
+SUBST:   de = ., %* = |, 1 = 1.., 2 = 2.., 3 = 334, G = G.
+SUBST:   ; : W.., p : W.., q : W.., r : W.., s : W.., y : W.., z : W..
+NSUBST:  . = 16 = 0. / *=.........W
+SUBST:   D = x., c = ccc.
+NSUBST:  ' = 1:( / 1:[ / 1:{ / 2 = <.. / *=P......
+MAP
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxDDDxxwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwxDx1112xxxxwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwxDx2.....rrrxwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwxxD...xxxrrrccccccwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwxxDpppDDxrrrccc1..1cccwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwxDDpppxDDrrrrcc.......%ccDDDwwwwwwwwwwwwww
+wwwwwwwwwwWWWWWWWWWDDpppxDD...xrr+...2.d.3.cc1.xxwwwwwwwwwwwww
+wwwwwwwwwWWWWWWWWWDxpppxD...xxxrrcc.......%cc...xxwwwwwwwwwwww
+wwwwwwwwWWWWWWWWWDxpppxx...xxxxrrrccc1..1ccc.....xDwwwwwwwwwww
+wwwwwwwWWWWWWWWWDxpppxx...xxxxxxxrrrcccccc....2..2Dwwwwwwwwwww
+wwwwwwWWW'''WWWDxpppxx.....yyyy2DDDrrrr......2GD..Dwwwwwwwwwww
+wwwwwwWW''''''WDxpppDxxxDDDxxyyyDxrrr1.....1DxxD..Dwwwwwwwwwww
+wwwwwwW'''''''WDD..pDxD1..1DxyyyyxrrxxDDxx..xxxx..Dwwwwwwwwwww
+wwwwwwW''cc''.WDD..pDx......Dyyyxxxxx2..2x..DxxD..Dwwwwwwwwwww
+wwwwwwW''cc''.WDD..pDx1....1+yy...2xD....D...2.2.1Dwwwwwwwwwww
+wwwwwwW''''''.W+...pDx......Dyy.....D....D...ccccccccwwwwwwwww
+wwwwwwW'''''..W+...ppxD1..1DxyyDD1..x1..2x.ccc1....1cccwwwwwww
+wwwwwwW''''..ccccc..pxDDDDxxxxxDD...xD++Dxcc1.........ccwwwwww
+wwwwwwW'''..cc..1cc..G....G.....G....G....Gc.....2.....*cwwwww
+wwwwwwW'''..+....2+;;;;;;;;;;;;;;;;;;;;;;;;+..2.....e3.*cwwwww
+wwwwwwW'''..cc..1cc.<G....G.....G....G....Gc.....2.....*cwwwww
+wwwwwwW''''..ccccc..qxDDDDxxxxxDD...xD++Dxcc1.........ccwwwwww
+wwwwwwW'''''..W+...qqxD1..1DxzzDD1..x1..2x.ccc1....1cccwwwwwww
+wwwwwwW''''''.W+...qDx......Dzz.....D....D...ccccccccwwwwwwwww
+wwwwwwW''cc''.WDD..qDx1....1+zz...2xD....D...2.2.1Dwwwwwwwwwww
+wwwwwwW''cc''.WDD..qDx......Dzzzxxxxx2..2x..DxxD..Dwwwwwwwwwww
+wwwwwwW'''''''WDD..qDxD1..1DxzzzzxssxxDDxx..xxxx..Dwwwwwwwwwww
+wwwwwwWW''''''WDxqqqDxxxDDDxxzzzxxsss......1DxxD..Dwwwwwwwwwww
+wwwwwwWWW'''WWWDxqqqxx.....zzzz2DDDssss1.....2GD..Dwwwwwwwwwww
+wwwwwwWWWWWWWWWWDxqqqxx...xxxxxxxssscccccc....2..2Dwwwwwwwwwww
+wwwwwwwWWWWWWWWWWDxqqqxx...xxxxsssccc1..1ccc.....xDwwwwwwwwwww
+wwwwwwwwWWWWWWWWWWDxqqqxD...xxxsscc.......|cc...xxwwwwwwwwwwww
+wwwwwwwwwWWWWWWWWWWDDqqqxDD...xss+...2.f.3.cc1.xxwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwxDDqqqxDDsssscc.......|ccDDDwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwxxD...DDxsssccc1..1cccwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwxxD2..xxxsssccccccwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwxDx......sssxwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwxDx1112xxxxwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxDDDxxwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww

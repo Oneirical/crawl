@@ -1,5 +1,6 @@
 #include "AppHdr.h"
 
+#include "branch-type.h"
 #include "tilepick.h"
 
 #include "ability.h"
@@ -692,7 +693,7 @@ tileidx_t tileidx_feature(const coord_def &gc)
         {
             return TILE_DNGN_DEEP_WATER_MURKY;
         }
-        else if (player_in_branch(BRANCH_SHOALS))
+        else if (player_in_branch(BRANCH_SHOALS) || player_in_branch(BRANCH_ELYSIUM))
             return TILE_SHOALS_DEEP_WATER;
 
         return TILE_DNGN_DEEP_WATER;
@@ -704,7 +705,7 @@ tileidx_t tileidx_feature(const coord_def &gc)
             {
                 t = TILE_DNGN_SHALLOW_WATER_MURKY;
             }
-            else if (player_in_branch(BRANCH_SHOALS))
+        else if (player_in_branch(BRANCH_SHOALS) || player_in_branch(BRANCH_ELYSIUM))
                 t = TILE_SHOALS_SHALLOW_WATER;
 
             if (env.map_knowledge(gc).invisible_monster())

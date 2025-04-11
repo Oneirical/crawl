@@ -1454,6 +1454,12 @@ void make_mons_leave_level(monster* mon)
         if (you.can_see(*mon))
             _mons_indicate_level_exit(mon);
 
+        if (have_passive(passive_t::elyvilon_pacify))
+        {
+            mprf(MSGCH_GOD, "%s begins its pilgrimage to Elysium.",
+               mon->name(DESC_THE).c_str());
+        }
+
         // Pacified monsters leaving the level take their stuff with
         // them.
         monster_die(*mon, KILL_RESET, NON_MONSTER);

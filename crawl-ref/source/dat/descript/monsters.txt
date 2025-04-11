@@ -3512,6 +3512,10 @@ spectator
 
 A follower of Okawaru, granted the honour of spectating a duel to the death.
 %%%%
+elysian choko
+
+A delicious, juicy delicacy, cultivated in Elysium's gardens for its healing properties.
+%%%%
 # Sprint only, too unhinged for regular games...
 oklob plant annihilator
 

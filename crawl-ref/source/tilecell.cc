@@ -517,7 +517,7 @@ void pack_cell_overlays(const coord_def &gc, crawl_view_buffer &vbuf)
     if (cell.map_knowledge.feat() == DNGN_UNSEEN)
         return; // Don't put overlays on unseen tiles
 
-    if (player_in_branch(BRANCH_SHOALS))
+    if (player_in_branch(BRANCH_SHOALS) || player_in_branch(BRANCH_ELYSIUM))
         _pack_shoal_waves(gc, vbuf);
     else
         _pack_default_waves(gc, vbuf);

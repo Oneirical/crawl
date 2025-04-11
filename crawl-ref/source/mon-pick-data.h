@@ -1152,6 +1152,9 @@ POP_DEPTHS,
   {  1,  1,   50, FLAT, MONS_EXECUTIONER },
 },
 
+{ // Elysium
+},
+
 };
 
 COMPILE_CHECK(ARRAYSZ(population) == NUM_BRANCHES);
@@ -1305,6 +1308,7 @@ static const vector<pop_entry> population_water[] =
 #endif
     GENERIC_WATER_POP, // Arena
     GENERIC_WATER_POP, // Crucible
+    GENERIC_WATER_POP, // Elysium
 };
 COMPILE_CHECK(ARRAYSZ(population_water) == NUM_BRANCHES);
 
@@ -1408,6 +1412,7 @@ static const vector<pop_entry> population_lava[] =
 #endif
     GENERIC_LAVA_POP, // Arena
     GENERIC_LAVA_POP, // Crucible
+    GENERIC_LAVA_POP, // Elysium
 };
 
 COMPILE_CHECK(ARRAYSZ(population_lava) == NUM_BRANCHES);

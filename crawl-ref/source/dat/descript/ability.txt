@@ -526,6 +526,12 @@ Greatly increases your maximum health and magic points, depending on
 Invocations skill. Your current health and magic points will also be increased
 proportionally.
 %%%%
+Elysian Retreat ability
+
+Transports you to one of Elysium's many tropical islands. On success, you
+will receive a precious few turns to spend in this vacation, where a variety
+of local fruits are available to replenish your health and your magic.
+%%%%
 # Lugonu
 Depart the Abyss ability
 

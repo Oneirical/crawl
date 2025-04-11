@@ -297,6 +297,7 @@ enum dungeon_feature_type
 #if TAG_MAJOR_VERSION > 34
     DNGN_ENTER_ARENA,
     DNGN_ENTER_CRUCIBLE,
+    DNGN_ENTER_ELYSIUM,
 #endif
 
     DNGN_EXIT_ZIGGURAT,
@@ -318,6 +319,7 @@ enum dungeon_feature_type
 #if TAG_MAJOR_VERSION > 34
     DNGN_EXIT_ARENA,
     DNGN_EXIT_CRUCIBLE,
+    DNGN_EXIT_ELYSIUM,
 #endif
 #if TAG_MAJOR_VERSION == 34
 
@@ -381,6 +383,8 @@ enum dungeon_feature_type
     DNGN_DECORATIVE_FLOOR,  // XXX: dummy for redefinition until we rewrite code
     DNGN_SPIKE_LAUNCHER,
     DNGN_TRAP_DEVOURER,
+    DNGN_ENTER_ELYSIUM,
+    DNGN_EXIT_ELYSIUM,
 
 #endif
 

@@ -1,5 +1,6 @@
 #include "AppHdr.h"
 
+#include "branch-type.h"
 #include "tileview.h"
 
 #include "areas.h"
@@ -297,6 +298,11 @@ void tile_default_flv(branch_type br, tile_flavour &flv)
         return;
 
     case BRANCH_CRUCIBLE:
+        flv.wall  = TILE_WALL_NORMAL;
+        flv.floor = TILE_FLOOR_NORMAL;
+        return;
+
+    case BRANCH_ELYSIUM:
         flv.wall  = TILE_WALL_NORMAL;
         flv.floor = TILE_FLOOR_NORMAL;
         return;

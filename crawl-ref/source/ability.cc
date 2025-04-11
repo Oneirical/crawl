@@ -5,6 +5,7 @@
 
 #include "AppHdr.h"
 
+#include "ability-type.h"
 #include "ability.h"
 
 #include <cctype>
@@ -30,6 +31,7 @@
 #include "delay.h"
 #include "describe.h"
 #include "directn.h"
+#include "dungeon-feature-type.h"
 #include "dungeon.h"
 #include "evoke.h"
 #include "exercise.h"
@@ -523,6 +525,8 @@ static vector<ability_def> &_get_ability_list()
         // Elyvilon
         { ABIL_ELYVILON_PURIFICATION, "Purification",
             2, 0, 2, -1, {fail_basis::invo, 20, 5, 20}, abflag::conf_ok },
+        { ABIL_ELYVILON_ELYSIAN_RETREAT, "Elysian Retreat",
+            7, 0, 8, -1, {fail_basis::invo, 80, 4, 20}, abflag::none },
         { ABIL_ELYVILON_HEAL_OTHER, "Heal Other",
             2, 0, 2, -1, {fail_basis::invo, 40, 5, 20}, abflag::none },
         { ABIL_ELYVILON_HEAL_SELF, "Heal Self",
@@ -3616,6 +3620,11 @@ static spret _do_ability(const ability_def& abil, bool fail, dist *target,
     case ABIL_ELYVILON_DIVINE_VIGOUR:
         fail_check();
         elyvilon_divine_vigour();
+        break;
+
+    case ABIL_ELYVILON_ELYSIAN_RETREAT:
+        fail_check();
+        down_stairs(DNGN_ENTER_ELYSIUM);
         break;
 
     case ABIL_LUGONU_ABYSS_EXIT:
