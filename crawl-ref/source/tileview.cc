@@ -303,8 +303,8 @@ void tile_default_flv(branch_type br, tile_flavour &flv)
         return;
 
     case BRANCH_ELYSIUM:
-        flv.wall  = TILE_WALL_NORMAL;
-        flv.floor = TILE_FLOOR_NORMAL;
+        flv.wall  = TILE_WALL_SHOALS;
+        flv.floor = TILE_FLOOR_SAND;
         return;
 
     case NUM_BRANCHES:

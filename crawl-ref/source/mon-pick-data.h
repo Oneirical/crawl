@@ -1,5 +1,6 @@
 #pragma once
 
+#include "monster-type.h"
 #include "tag-version.h"
 
 // This is done to avoid duplicating the Depths list and can be
@@ -1153,6 +1154,7 @@ POP_DEPTHS,
 },
 
 { // Elysium
+  {  1,  1,  100, FLAT, MONS_ELYSIAN_CHOKO },
 },
 
 };

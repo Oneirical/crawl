@@ -5,6 +5,7 @@
 
 #include "AppHdr.h"
 
+#include "dungeon-feature-type.h"
 #include "god-abil.h"
 
 #include <cmath>
@@ -42,6 +43,7 @@
 #include "god-companions.h"
 #include "god-item.h"
 #include "god-passive.h"
+#include "god-type.h"
 #include "hints.h"
 #include "hiscores.h"
 #include "invent.h"
@@ -69,6 +71,7 @@
 #include "mon-speak.h"
 #include "mon-tentacle.h"
 #include "mon-util.h"
+#include "monster-type.h"
 #include "movement.h"
 #include "mutation.h"
 #include "nearby-danger.h"
@@ -1388,6 +1391,76 @@ void elyvilon_remove_divine_vigour()
     you.attribute[ATTR_DIVINE_VIGOUR] = 0;
     calc_hp();
     calc_mp();
+}
+
+static const vector<random_pick_entry<monster_type>> _elyvilon_fruits =
+{
+  {  -5,  3, 200, FALL, MONS_ELYSIAN_CHOKO },
+  {  -4,  3, 200, SEMI, MONS_ELYSIAN_CHOKO },
+  {  -3,  3, 200, SEMI, MONS_ELYSIAN_CHOKO },
+  {  0,  8,  100, SEMI, MONS_ELYSIAN_CHOKO },
+  {  2,  10,  120, SEMI, MONS_ELYSIAN_CHOKO },
+  {  2,  12, 110, SEMI, MONS_ELYSIAN_CHOKO },
+  {  3,  12, 145, SEMI, MONS_ELYSIAN_CHOKO },
+  {  4,  14, 145, SEMI, MONS_ELYSIAN_CHOKO },
+  {  6,  15, 100, SEMI, MONS_ELYSIAN_CHOKO },
+  {  6,  17, 150, SEMI, MONS_ELYSIAN_CHOKO },
+  {  6,  21, 180, SEMI, MONS_ELYSIAN_CHOKO },
+  {  9,  18, 150, SEMI, MONS_ELYSIAN_CHOKO },
+  {  9,  19, 160, SEMI, MONS_ELYSIAN_CHOKO },
+  { 11,  27,  155, SEMI, MONS_ELYSIAN_CHOKO },
+  { 15,  27,  150, SEMI, MONS_ELYSIAN_CHOKO },
+  { 20,  27,  185, SEMI, MONS_ELYSIAN_CHOKO },
+  { 20,  32,  220, PEAK, MONS_ELYSIAN_CHOKO },
+  { 23,  35,  160, RISE, MONS_ELYSIAN_CHOKO },
+  { 23,  35,  180, RISE, MONS_ELYSIAN_CHOKO },
+  { 24,  39,  300, RISE, MONS_ELYSIAN_CHOKO },
+  { 27,  41,  180, RISE, MONS_ELYSIAN_CHOKO },
+};
+
+static void _spawn_elysian_fruit(bool allow_in_sight)
+{
+    int pow = (you.experience_level - 7) * 5 / 4;
+
+    if (runes_in_pack() > 3)
+        pow += (runes_in_pack() - 3) * 2 / 3;
+
+    if (coinflip())
+        pow = pow * 2 / 3;
+    else if (one_chance_in(4))
+        pow += 3;
+
+    monster_picker picker;
+    monster_type mon_type = picker.pick(_elyvilon_fruits, pow, MONS_ELYSIAN_CHOKO);
+
+    mgen_data mg(mon_type, BEH_HOSTILE, coord_def(-1, -1), MHITNOT,
+                  MG_FORBID_BANDS, GOD_ELYVILON);
+    mg.extra_flags |= MF_NO_REWARD | MF_HARD_RESET;
+
+    if (!allow_in_sight)
+        mg.proximity = PROX_AWAY_FROM_PLAYER;
+    else
+        mg.proximity = PROX_CLOSE_TO_PLAYER;
+
+    mons_place(mg);
+}
+
+void elyvilon_enter_elysium()
+{
+    stop_delay(true);
+    down_stairs(DNGN_ENTER_ELYSIUM);
+
+    int num_enemies = random_range(3, 5);
+    if (you.experience_level > 17)
+        num_enemies += (you.experience_level - 17) / 5 + 1;
+
+    const int num_near_enemies = random_range(1, 2);
+
+    for (int i = 0; i < num_enemies; ++i)
+        _spawn_elysian_fruit(false);
+
+    for (int i = 0; i < num_near_enemies; ++i)
+        _spawn_elysian_fruit(true);
 }
 
 bool vehumet_supports_spell(spell_type spell)

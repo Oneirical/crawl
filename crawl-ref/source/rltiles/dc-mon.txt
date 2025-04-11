@@ -1080,6 +1080,7 @@ briar_patch MONS_BRIAR_PATCH
 %rim 1
 vine_stalker MONS_VINE_STALKER
 %rim 0
+elysian_choko MONS_ELYSIAN_CHOKO
 %sdir mon/unique
 maurice MONS_MAURICE
 

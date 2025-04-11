@@ -120,6 +120,7 @@ void tso_expend_divine_shield_charge();
 void elyvilon_purification();
 void elyvilon_divine_vigour();
 void elyvilon_remove_divine_vigour();
+void elyvilon_enter_elysium();
 
 bool vehumet_supports_spell(spell_type spell);
 

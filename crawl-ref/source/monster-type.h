@@ -391,6 +391,7 @@ enum monster_type                      // env.mons[].type
     MONS_WITHERED_PLANT,
     MONS_SACRED_LOTUS,
     MONS_STARFLOWER,
+    MONS_ELYSIAN_CHOKO,
 #endif
     MONS_BALLISTOMYCETE_SPORE,
     MONS_BALLISTOMYCETE,
@@ -1332,6 +1333,7 @@ enum monster_type                      // env.mons[].type
     MONS_VAMPIRE_BLOODPRINCE,
     MONS_REVENANT,               // player species dummy
     MONS_NAMELESS_REVENANT,      // 'Nobody' (except with a less misleading enum name)
+    MONS_ELYSIAN_CHOKO,
 #endif
 
     NUM_MONSTERS,               // used for polymorph

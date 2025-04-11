@@ -3624,7 +3624,7 @@ static spret _do_ability(const ability_def& abil, bool fail, dist *target,
 
     case ABIL_ELYVILON_ELYSIAN_RETREAT:
         fail_check();
-        down_stairs(DNGN_ENTER_ELYSIUM);
+        elyvilon_enter_elysium();
         break;
 
     case ABIL_LUGONU_ABYSS_EXIT:

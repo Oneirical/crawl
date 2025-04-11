@@ -4351,7 +4351,8 @@ int monster::hurt(const actor *agent, int amount, beam_type flavour,
         }
 
         if (agent && (agent->is_player() || agent->as_monster()->friendly())
-            && have_passive(passive_t::elyvilon_pacify))
+            && have_passive(passive_t::elyvilon_pacify) && willpower() != WILL_INVULN)
+
         {
             mon_enchant old_l_wl = this->get_ench(ENCH_LOWERED_WL);
             this->del_ench(ENCH_LOWERED_WL);
